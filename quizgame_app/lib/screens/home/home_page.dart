@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:quizgame_app/constants.dart';
 
+
+// home page
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack( children: [
+      body: Stack(
+          children: [
+        //back ground
         Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
