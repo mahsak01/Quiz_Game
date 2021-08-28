@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quizgame_app/constants.dart';
 
-
 // home page
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-          children: [
+      body: Stack(children: [
         //back ground
         Container(
           width: MediaQuery.of(context).size.width,
@@ -20,7 +18,7 @@ class HomePage extends StatelessWidget {
         ),
         SafeArea(
             child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -35,20 +33,17 @@ class HomePage extends StatelessWidget {
                   Text("Enter your name below"),
                   Spacer(),
                   TextField(
-
                     decoration: InputDecoration(
-
                         filled: true,
                         fillColor: SecondColor,
                         hintText: "Full Name",
-                        hintStyle: TextStyle(color: GrayColor,fontSize: 20),
+                        hintStyle: TextStyle(color: GrayColor, fontSize: 20),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                             borderSide: BorderSide(color: GrayColor)),
-                      focusedBorder:  OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          borderSide: BorderSide(color: GrayColor))
-                    ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(color: GrayColor))),
                   ),
                   Spacer(),
                   Center(
@@ -56,7 +51,7 @@ class HomePage extends StatelessWidget {
                       // on tap
                       child: Container(
                         height: 60,
-                        width: MediaQuery.of(context).size.width/2,
+                        width: MediaQuery.of(context).size.width / 2,
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(kDefaultPadding * 0.75),
                         // 15
@@ -69,7 +64,7 @@ class HomePage extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .button!
-                              .copyWith(color: Colors.black,fontSize: 20),
+                              .copyWith(color: Colors.black, fontSize: 20),
                         ),
                       ),
                     ),
