@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quizgame_app/constants.dart';
+import 'package:quizgame_app/screens/home/home_page.dart';
 
+
+//score page
 class ScorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,13 @@ class ScorePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 10),
-                child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios_rounded, color: WhiteColor, size: 50,)),
+                child: IconButton(onPressed: (){
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                }, icon: Icon(Icons.arrow_back_ios_rounded, color: WhiteColor, size: 50,)),
               )
             ],
           ),

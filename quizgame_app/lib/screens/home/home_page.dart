@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizgame_app/constants.dart';
+import 'package:quizgame_app/screens/quiz/quiz_page.dart';
 
 // home page
 class HomePage extends StatelessWidget {
@@ -48,7 +49,13 @@ class HomePage extends StatelessWidget {
                   Spacer(),
                   Center(
                     child: GestureDetector(
-                      // on tap
+                      onTap: (){
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => QuizPage()),
+                        );
+                      },
                       child: Container(
                         height: 60,
                         width: MediaQuery.of(context).size.width / 2,
