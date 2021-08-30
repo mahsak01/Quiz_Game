@@ -35,7 +35,7 @@ List data = [
     "id": 3,
     "question": "A memory location that holds a single letter or number.",
     "options": ['Double', 'Int', 'Char', 'Word'],
-    "answe_index": 2,
+    "answer": 2,
   },
   {
     "id": 4,

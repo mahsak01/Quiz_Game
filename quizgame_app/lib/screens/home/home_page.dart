@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizgame_app/Data/read_data.dart';
 import 'package:quizgame_app/constants.dart';
 import 'package:quizgame_app/screens/quiz/quiz_page.dart';
 
@@ -50,6 +51,7 @@ class HomePage extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: (){
+                        readData();
                         Navigator.pop(context);
                         Navigator.push(
                           context,
