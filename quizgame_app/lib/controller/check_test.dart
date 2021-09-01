@@ -8,11 +8,19 @@ class Check_Test extends GetxController{
   Check_Test(int correctSelect){
     this.correctIndex=correctSelect;
     this.isSelect.value=false;
+    update();
   }
 
+  update_Check_Test(int correctSelect){
+    this.correctIndex=correctSelect;
+    this.isSelect.value=false;
+    this.selectIndex=-1.obs;
+    update();
+  }
   void selectOption(int select){
     this.selectIndex=select;
     this.isSelect.value=true;
+    update();
   }
 
 }

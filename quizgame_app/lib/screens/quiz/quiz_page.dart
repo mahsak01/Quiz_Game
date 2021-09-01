@@ -79,7 +79,8 @@ class QuizPage extends StatelessWidget {
                       endIndent: 5,
                     ),
                     Spacer(flex: 1,),
-                    QuestionCard(questions[play.numberOfQuestion]),
+
+                    GetBuilder<Play>(  builder: (_) => QuestionCard(questions[play.numberOfQuestion])),
                     Spacer()
                   ],
 

@@ -13,7 +13,8 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var check_test= Get.put(Check_Test(question!.answer));
-    print(check_test.isSelect);
+    check_test.update_Check_Test(question!.answer);
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
