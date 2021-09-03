@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 const SecondColor= Color(0xff45474b);
 const WhiteColor = Color(0xFFffffff);
@@ -44,3 +45,4 @@ List data = [
     "answer": 2,
   },
 ];
+

@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:quizgame_app/Data/read_data.dart';
 import 'package:quizgame_app/screens/home/home_page.dart';
 
 

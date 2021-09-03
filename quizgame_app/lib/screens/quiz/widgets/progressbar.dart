@@ -1,49 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 import 'package:quizgame_app/constants.dart';
+import 'package:quizgame_app/controller/Play.dart';
 class ProgressBar extends StatelessWidget {
+  const ProgressBar({
+    Key? key,
+  }) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.centerRight,
-      children: [
-        Stack(
-          alignment: Alignment.centerLeft,
-          children: [
-            Container(
-              height: 40,
-              width: MediaQuery.of(context).size.width/1.2,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                border: Border.all(
-                  color: GrayColor
-                )
-              ),
-            ),
-          //  if(context.read<ProviderController>().start>0)
-            Padding(
-              padding: const EdgeInsets.only(left: 2),
-              child: Container(
-                height: 38,
-                width: ((MediaQuery.of(context).size.width/1.2)-4),//*context.read<ProviderController>().start ,
-                decoration: BoxDecoration(
+    return Container(
+      width: double.infinity,
+      height: 35,
+      decoration: BoxDecoration(
+        border: Border.all(color: GrayColor, width: 3),
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: GetBuilder<Play>(
+        init: Play(),
+        builder: (controller) {
+          return Stack(
+            children: [
+              // LayoutBuilder provide us the available space for the conatiner
+              // constraints.maxWidth needed for our animation
+              LayoutBuilder(
+                builder: (context, constraints) => Container(
+                  // from 0 to 1 it takes 60s
+                  width: constraints.maxWidth * controller.animation!.value,
+                  decoration: BoxDecoration(
                     gradient: PrimaryGradient,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-
+                    borderRadius: BorderRadius.circular(50),
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.only(right: 10),
-          child: Icon(
-            Icons.access_time,
-            color: GrayColor,
-            size: 30,
-          ),
-        )
-      ],
+              Positioned.fill(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: kDefaultPadding / 2),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("${(controller.animation!.value * 60).round()} sec"),
+                      Icon(Icons.access_time)
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }

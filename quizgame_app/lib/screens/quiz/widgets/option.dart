@@ -1,96 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizgame_app/constants.dart';
-import 'package:quizgame_app/controller/check_test.dart';
+import 'package:quizgame_app/controller/Play.dart';
 
 class Option extends StatelessWidget {
-  String? text;
-  int index;
-  Check_Test check_test;
-
-  Option(this.text, this.index, this.check_test);
+  const Option( this.text,
+       this.index,
+       this.press,{
+        Key? key,
+  }) : super(key: key);
+  final String text;
+  final int index;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: GestureDetector(
-        onTap: () {
-          check_test.selectOption(index);
-        },
-        child: Stack(
-          alignment: Alignment.centerRight,
-          children: [
-            Stack(
-              alignment: Alignment.centerLeft,
-              children: [
-                GetBuilder<Check_Test>(
-                  builder: (_) => Container(
-                    width: MediaQuery.of(context).size.width / 1,
-                    height: 80,
-                    decoration: BoxDecoration(
-                        color: (check_test.isSelect == true &&
-                                index == check_test.correctIndex)
-                            ? GreenColorLight
-                            : (check_test.selectIndex == index &&
-                                    check_test.isSelect == true)
-                                ? RedColorLight
-                                : WhiteColor,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        border: Border.all(
-                          color: (check_test.isSelect == true &&
-                                  index == check_test.correctIndex)
-                              ? GreenColor
-                              : (check_test.selectIndex == index &&
-                                      check_test.isSelect == true)
-                                  ? RedColor
-                                  : GrayColor,
-                        )),
+    return GetBuilder<Play>(
+        init: Play(),
+        builder: (qnController) {
+          Color getTheRightColor() {
+            if (qnController.isAnswered) {
+              if (index == qnController.correctAns) {
+                return GreenColor;
+              } else if (index == qnController.selectedAns &&
+                  qnController.selectedAns != qnController.correctAns) {
+                return RedColor;
+              }
+            }
+            return GrayColor;
+          }
+
+          IconData getTheRightIcon() {
+            return getTheRightColor() == RedColor ? Icons.close : Icons.done;
+          }
+
+          return InkWell(
+            onTap: press,
+            child: Container(
+              margin: EdgeInsets.only(top: kDefaultPadding),
+              padding: EdgeInsets.all(kDefaultPadding),
+              decoration: BoxDecoration(
+                border: Border.all(color: getTheRightColor()),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "${index + 1}. $text",
+                    style: TextStyle(color: getTheRightColor(), fontSize: 16),
                   ),
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: GetBuilder<Check_Test>(
-                      builder: (_) => Text(
-                        "${index + 1}. $text",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: (check_test.isSelect == true &&
-                                  index == check_test.correctIndex)
-                              ? GreenColor
-                              : (check_test.selectIndex == index &&
-                                      check_test.isSelect == true)
-                                  ? RedColor
-                                  : GrayColor,
-                        ),
-                      ),
-                    )),
-              ],
+                  Container(
+                    height: 26,
+                    width: 26,
+                    decoration: BoxDecoration(
+                      color: getTheRightColor() == GrayColor
+                          ? Colors.transparent
+                          : getTheRightColor(),
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: getTheRightColor()),
+                    ),
+                    child: getTheRightColor() == GrayColor
+                        ? null
+                        : Icon(getTheRightIcon(), size: 16),
+                  )
+                ],
+              ),
             ),
-            GetBuilder<Check_Test>(
-                builder: (_) => IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        (check_test.isSelect == true &&
-                                index == check_test.correctIndex)
-                            ? Icons.check_circle
-                            : (check_test.selectIndex == index &&
-                                    check_test.isSelect == true)
-                                ? Icons.cancel
-                                : Icons.circle_outlined,
-                      ),
-                      iconSize: 35,
-                      color: (check_test.isSelect == true &&
-                              index == check_test.correctIndex)
-                          ? GreenColor
-                          : (check_test.selectIndex == index &&
-                                  check_test.isSelect == true)
-                              ? RedColor
-                              : GrayColor,
-                    ))
-          ],
-        ),
-      ),
-    );
+          );
+        });
   }
 }
