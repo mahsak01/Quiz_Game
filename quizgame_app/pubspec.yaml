@@ -50,6 +50,8 @@ flutter:
   assets:
      - assets/background.png
      - assets/winner.png
+     - assets/logo.png
+     - assets/quiz.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

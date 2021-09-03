@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizgame_app/constants.dart';
+import 'package:quizgame_app/screens/home/welcome_page.dart';
 import 'package:quizgame_app/screens/quiz/quiz_page.dart';
 
 // home page
@@ -52,7 +53,7 @@ class HomePage extends StatelessWidget {
                       onTap: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => QuizPage()),
+                          MaterialPageRoute(builder: (context) => WelcomePage()),
                         );
                       },
                       child: Container(
@@ -66,7 +67,7 @@ class HomePage extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(25)),
                         ),
                         child: Text(
-                          "Lets Start",
+                          "Start",
                           style: Theme.of(context)
                               .textTheme
                               .button!

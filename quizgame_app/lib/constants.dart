@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizgame_app/models/User.dart';
 
 const SecondColor= Color(0xff45474b);
 const WhiteColor = Color(0xFFffffff);
@@ -17,6 +18,7 @@ const PrimaryGradient = LinearGradient(
 
 const double kDefaultPadding = 20.0;
 
+User user=User(0, "Mahsa");
 
 List data = [
   {

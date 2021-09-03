@@ -29,7 +29,17 @@ class Option extends StatelessWidget {
             }
             return GrayColor;
           }
-
+          Color getTheRightLightColor() {
+            if (qnController.isAnswered) {
+              if (index == qnController.correctAns) {
+                return GreenColorLight;
+              } else if (index == qnController.selectedAns &&
+                  qnController.selectedAns != qnController.correctAns) {
+                return RedColorLight;
+              }
+            }
+            return WhiteColor;
+          }
           IconData getTheRightIcon() {
             return getTheRightColor() == RedColor ? Icons.close : Icons.done;
           }
@@ -42,7 +52,9 @@ class Option extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: getTheRightColor()),
                 borderRadius: BorderRadius.circular(15),
-              ),
+                color: getTheRightLightColor()
+
+            ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

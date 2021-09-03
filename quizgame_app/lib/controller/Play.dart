@@ -69,22 +69,25 @@ class Play extends GetxController  with SingleGetTickerProviderMixin {
   }
 
   void checkAns(Question question, int selectedIndex) {
-    // because once user press any option then it will run
-    _isAnswered = true;
-    _correctAns = question.answer;
-    _selectedAns = selectedIndex;
+    if(    _isAnswered != true){
+      // because once user press any option then it will run
+      _isAnswered = true;
+      _correctAns = question.answer;
+      _selectedAns = selectedIndex;
 
-    if (_correctAns == _selectedAns) _numOfCorrectAns++;
+      if (_correctAns == _selectedAns) _numOfCorrectAns++;
 
 
-    // It will stop the counter
-    _animationController!.stop();
-    update();
+      // It will stop the counter
+      _animationController!.stop();
+      update();
 
-    // Once user select an ans after 3s it will go to the next qn
-    Future.delayed(Duration(seconds: 3), () {
-      nextQuestion();
-    });
+      // Once user select an ans after 3s it will go to the next qn
+      Future.delayed(Duration(seconds: 3), () {
+        nextQuestion();
+      });
+    }
+
   }
 
   void nextQuestion() {

@@ -9,7 +9,7 @@ import 'package:quizgame_app/screens/home/home_page.dart';
 class ScorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Play _qnController = Get.put(Play());
+    Play _qnController = Get.put(Play());
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -59,13 +59,13 @@ class ScorePage extends StatelessWidget {
                     child: Image.asset("assets/winner.png",fit: BoxFit.fill,),
                   ),
                   Spacer(),
-                  // Text(
-                  //   "${_qnController.correctAns.obs * 10}/${_qnController.questions.length * 10}",
-                  //   style: Theme.of(context)
-                  //       .textTheme
-                  //       .headline3!
-                  //       .copyWith(color: GrayColor),
-                  // ),
+                  Text(
+                    "${_qnController.correctAns.obs * 10}/${_qnController.questions.length * 10}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline3!
+                        .copyWith(color: GrayColor),
+                  ),
                   Spacer(flex: 2,),
 
                 ],
