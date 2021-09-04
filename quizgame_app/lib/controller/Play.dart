@@ -2,11 +2,13 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:quizgame_app/models/Question.dart';
+import 'package:quizgame_app/models/User.dart';
 import 'package:quizgame_app/screens/score/score_page.dart';
 
 import '../constants.dart';
 
 class Play extends GetxController  with SingleGetTickerProviderMixin {
+
   // Lets animated our progress bar
 
   AnimationController? _animationController;
@@ -69,7 +71,7 @@ class Play extends GetxController  with SingleGetTickerProviderMixin {
   }
 
   void checkAns(Question question, int selectedIndex) {
-    if(    _isAnswered != true){
+    if( _isAnswered != true){
       // because once user press any option then it will run
       _isAnswered = true;
       _correctAns = question.answer;

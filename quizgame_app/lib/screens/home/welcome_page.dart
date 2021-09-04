@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quizgame_app/controller/Play.dart';
 import 'package:quizgame_app/screens/quiz/quiz_page.dart';
 
 import '../../constants.dart';
@@ -20,25 +22,26 @@ class WelcomePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Spacer(flex: 2),
-                  Text(
+                 Text(
                     "Welcome ${user.name}",
                     style: Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .headline4!
                         .copyWith(fontWeight: FontWeight.bold, color: WhiteColor),
                   ),
                   Spacer(),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width/1.5,
-                    height: MediaQuery.of(context).size.height/4,
-                    child: Image.asset("assets/quiz.png",fit: BoxFit.fill,),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width/1.5,
+                      height: MediaQuery.of(context).size.height/3,
+                      child: Image.asset("assets/quiz.png",fit: BoxFit.fill,),
+                    ),
                   ),
                   Spacer(),
-                  Center(child: Text("Are you ready to quiz game?")),
-                  Spacer(),
+                  Center(child: Text("Are you ready to quiz game?",style: TextStyle(fontSize: 20),),),
                   Spacer(),
                   Center(
                     child: GestureDetector(

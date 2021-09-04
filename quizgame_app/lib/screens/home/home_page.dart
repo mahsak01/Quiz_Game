@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:quizgame_app/constants.dart';
+import 'package:quizgame_app/controller/Play.dart';
 import 'package:quizgame_app/screens/home/welcome_page.dart';
 import 'package:quizgame_app/screens/quiz/quiz_page.dart';
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
 
-// home page
-class HomePage extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
+  TextEditingController controller = TextEditingController();
+  bool click=false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +43,12 @@ class HomePage extends StatelessWidget {
                   Text("Enter your name below"),
                   Spacer(),
                   TextField(
+                    controller: controller,
                     decoration: InputDecoration(
+                      errorText: (controller.text.isEmpty && click)?"please enter your name":null,
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide: BorderSide(color: RedColor),),
                         filled: true,
                         fillColor: SecondColor,
                         hintText: "Full Name",
@@ -51,10 +64,18 @@ class HomePage extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: (){
+                        setState(() {
+                          click=true;
+
+                        });
+                        if(!controller.text.isEmpty){
+                          user.name=controller.text;
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => WelcomePage()),
+                        context,
+                        MaterialPageRoute(builder: (context) => WelcomePage()),
                         );
+                        }
+
                       },
                       child: Container(
                         height: 60,

@@ -26,17 +26,7 @@ class ScorePage extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20, left: 10),
-                child: IconButton(onPressed: (){
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
-                }, icon: Icon(Icons.arrow_back_ios_rounded, color: WhiteColor, size: 50,)),
-              )
-            ],
+             ]
           ),
           SafeArea(
             child: Padding(
@@ -60,7 +50,7 @@ class ScorePage extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    "${_qnController.correctAns.obs * 10}/${_qnController.questions.length * 10}",
+                    "${_qnController.numOfCorrectAns.obs * 10}/${_qnController.questions.length * 10}",
                     style: Theme.of(context)
                         .textTheme
                         .headline3!
