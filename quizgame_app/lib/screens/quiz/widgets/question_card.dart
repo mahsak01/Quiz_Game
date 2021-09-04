@@ -21,23 +21,31 @@ class QuestionCard extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
       ),
-      child: Column(
-        children: [
-          Text(
-            question.question,
-            style: Theme.of(context)
-                .textTheme
-                .headline6!
-                .copyWith(color: BlackColor),
-          ),
-          SizedBox(height: kDefaultPadding / 2),
-          ...List.generate(
-            question.options.length,
-                (index) => Option(question.options[index], index,
-                      () => _controller.checkAns(question, index),
+      child: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overscroll) {
+          overscroll.disallowGlow();
+          return true;
+        },
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: [
+            Text(
+              question.question,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6!
+                  .copyWith(color: BlackColor),
             ),
-          ),
-        ],
+            SizedBox(height: kDefaultPadding / 2),
+            ...List.generate(
+              question.options.length,
+                  (index) => Option(question.options[index], index,
+                        () => _controller.checkAns(question, index),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
