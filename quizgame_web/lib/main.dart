@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizgame_web/screens/homescreen/HomePage.dart';
+import 'package:quizgame_web/screens/scorescreen/ScorePage.dart';
 import 'package:quizgame_web/screens/welcomescreen/welcome_screen.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: WelcomeScreen(),
+      home: ScorePage(),
     );
   }
 }
