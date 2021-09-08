@@ -50,8 +50,10 @@ flutter:
      - assets/logo_big.png
      - assets/logo_small.png
      - assets/homepage/home_image.png
-     - assets/top_background_big.png
-     - assets/top_background_small.png
+     - assets/homepage/top_background_big.png
+     - assets/homepage/top_background_small.png
+     - assets/welcomepage/bottom_background_big.png
+     - assets/welcomepage/bottom_background_small.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
