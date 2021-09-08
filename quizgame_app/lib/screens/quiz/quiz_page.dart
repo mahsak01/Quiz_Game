@@ -11,6 +11,7 @@ class QuizPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Play play = Get.put(Play());
     return Scaffold(
+      
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           // Flutter show the back button automatically
