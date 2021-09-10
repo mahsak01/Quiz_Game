@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizgame_web/screens/welcomescreen/welcome_screen.dart';
 
 import '../../../constant.dart';
 
@@ -93,13 +94,13 @@ class _HomeWidgetsMinState extends State<HomeWidgetsMin> {
                       setState(() {
                         click = true;
                       });
-                      // if(!controller.text.isEmpty){
-                      //   user.name=controller.text;
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(builder: (context) => WelcomePage()),
-                      //   );
-                      // }
+                      if(!controller.text.isEmpty){
+                        user.name=controller.text;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                        );
+                      }
                     },
                     child: Container(
                       height: 60,

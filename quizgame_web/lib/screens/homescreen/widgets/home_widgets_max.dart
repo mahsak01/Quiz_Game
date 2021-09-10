@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizgame_web/screens/welcomescreen/welcome_screen.dart';
 
 import '../../../constant.dart';
 class HomeWidgetsMax extends StatefulWidget {
@@ -89,13 +90,13 @@ class _HomeWidgetsMaxState extends State<HomeWidgetsMax> {
                                     click=true;
 
                                   });
-                                  // if(!controller.text.isEmpty){
-                                  //   user.name=controller.text;
-                                  //   Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(builder: (context) => WelcomePage()),
-                                  //   );
-                                  // }
+                                  if(!controller.text.isEmpty){
+                                    user.name=controller.text;
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                                    );
+                                  }
 
                                 },
                                 child: Container(

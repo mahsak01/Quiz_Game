@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quizgame_web/controller/Play.dart';
 
 import '../../../constant.dart';
 
@@ -13,6 +15,7 @@ class _ScoreWidgetsMinState extends State<ScoreWidgetsMin> {
 
   @override
   Widget build(BuildContext context) {
+    Play _qnController = Get.put(Play());
     return Scaffold(
       body: Container(
           color: whiteColor,
@@ -68,7 +71,7 @@ class _ScoreWidgetsMinState extends State<ScoreWidgetsMin> {
                     height: 40,
                   ),
                   Text(
-                    "20/50",
+                    "${_qnController.numOfCorrectAns.obs * 10}/${_qnController.questions.length * 10}",
                     style: TextStyle(color: grayColor, fontSize: 60),
                   ),
 

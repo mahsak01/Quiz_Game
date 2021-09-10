@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quizgame_web/controller/Play.dart';
 
 import '../../../constant.dart';
 class ScoreWidgetsMax extends StatefulWidget {
@@ -11,6 +13,7 @@ class _ScoreWidgetsMaxState extends State<ScoreWidgetsMax> {
   bool click=false;
   @override
   Widget build(BuildContext context) {
+    Play _qnController = Get.put(Play());
     return Scaffold(
       body:  Container(
           color: whiteColor,
@@ -58,7 +61,7 @@ class _ScoreWidgetsMaxState extends State<ScoreWidgetsMax> {
                               SizedBox(
                                 height: 60,
                               ),
-                              Text("20/50",style: TextStyle(color: grayColor , fontSize: 70),),
+                              Text("${_qnController.numOfCorrectAns.obs * 10}/${_qnController.questions.length * 10}",style: TextStyle(color: grayColor , fontSize: 70),),
 
                             ],
                           )

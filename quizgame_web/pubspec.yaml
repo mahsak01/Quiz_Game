@@ -29,6 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get: ^4.3.8
+  fl_chart: ^0.40.0
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +50,7 @@ flutter:
   assets:
      - assets/logo_big.png
      - assets/logo_small.png
+     - assets/logo_white.png
      - assets/homepage/home_image.png
      - assets/homepage/top_background_big.png
      - assets/homepage/top_background_small.png
@@ -57,6 +59,10 @@ flutter:
      - assets/scorepage/score_image.png
      - assets/scorepage/top_background_big.png
      - assets/scorepage/top_background_small.png
+     - assets/quizpage/background.png
+     - assets/quizpage/container_big.png
+     - assets/quizpage/container_small.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

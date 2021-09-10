@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:quizgame_web/models/Question.dart';
+import 'package:quizgame_web/screens/scorescreen/ScorePage.dart';
 
 import '../constant.dart';
 
@@ -13,6 +14,7 @@ class Play extends GetxController  with SingleGetTickerProviderMixin {
   Animation? _animation;
   // so that we can access our animation outside
   Animation? get animation => this._animation;
+
 
   PageController? _pageController;
   PageController? get pageController => this._pageController;
@@ -104,7 +106,7 @@ class Play extends GetxController  with SingleGetTickerProviderMixin {
       _animationController!.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      /// Get.to(ScorePage());
+       Get.to(ScorePage());
     }
   }
 

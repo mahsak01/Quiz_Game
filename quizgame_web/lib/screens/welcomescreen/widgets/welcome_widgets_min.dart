@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizgame_web/controller/Play.dart';
+import 'package:quizgame_web/screens/quizpage/quizpage.dart';
 
 import '../../../constant.dart';
 class WelcomeWidgetsMin extends StatefulWidget {
@@ -42,24 +43,16 @@ class _WelcomeWidgetsMinState extends State<WelcomeWidgetsMin> {
                     children: [
                       Spacer(flex: 2,),
 
-                      Text("Welcome Mahsa",style: TextStyle(color: greenColor , fontSize: 50),),
+                      Text("Welcome ${user.name}",style: TextStyle(color: greenColor , fontSize: 50),),
                       Text("Are you ready to quiz game?",style: TextStyle(color: grayColor , fontSize: 20),),
                       Spacer(),
                       GestureDetector(
                         onTap: (){
-                          setState(() {
-                            click=true;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => QuizPage()));
+                          },
 
-                          });
-                          // if(!controller.text.isEmpty){
-                          //   user.name=controller.text;
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(builder: (context) => WelcomePage()),
-                          //   );
-                          // }
-
-                        },
                         child: Container(
                           height: 60,
                           width: 150,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizgame_web/constant.dart';
 import 'package:quizgame_web/controller/Play.dart';
+import 'package:quizgame_web/screens/quizpage/quizpage.dart';
 class WelcomeWidgetsMax extends StatefulWidget {
   @override
   _WelcomeWidgetsMaxState createState() => _WelcomeWidgetsMaxState();
@@ -48,23 +49,14 @@ class _WelcomeWidgetsMaxState extends State<WelcomeWidgetsMax> {
                          children: [
                            Spacer(flex: 2,),
 
-                           Text("Welcome Mahsa",style: TextStyle(color: greenColor , fontSize: 70),),
+                           Text("Welcome ${user.name}",style: TextStyle(color: greenColor , fontSize: 70),),
                            Text("Are you ready to quiz game?",style: TextStyle(color: grayColor , fontSize: 30),),
                           Spacer(),
                            GestureDetector(
                              onTap: (){
-                               setState(() {
-                                 click=true;
-
-                               });
-                               // if(!controller.text.isEmpty){
-                               //   user.name=controller.text;
-                               //   Navigator.push(
-                               //     context,
-                               //     MaterialPageRoute(builder: (context) => WelcomePage()),
-                               //   );
-                               // }
-
+                               Navigator.push(
+                                   context,
+                                   MaterialPageRoute(builder: (context) => QuizPage()));
                              },
                              child: Container(
                                height: 60,

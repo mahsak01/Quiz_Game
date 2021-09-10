@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'models/User.dart';
 const GreenColor = Color(0xFF6AC259);
 const GreenColorLight = Color(0xffd9fbe3);
 const RedColorLight = Color(0xfffed8d8);
@@ -14,7 +16,7 @@ const PrimaryGradient = LinearGradient(
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
 );
-
+User user=User(0, "Mahsa");
 List data = [
   {
     "id": 1,
